@@ -4,20 +4,46 @@
      <title>The %(listname)s %(archive)s Archiv nach %(archtype)s</title>
      <META NAME="robots" CONTENT="noindex,follow">
      %(encoding)s
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="list-name" content="%(listname)s">
+    <link rel="stylesheet" href="/assets/mailman/mailman.css">
+    <script src="/assets/mailman/jquery.min.js"></script>
+    <script src="/assets/mailman/mailman.js"></script>
   </HEAD>
-  <BODY BGCOLOR="#ffffff">
+  <BODY>
+    <nav class="navbar navbar-default navbar-static-top orange-stripe">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/mailman/listinfo"><span>D120.de/</span>mailman</a>
+        </div>
+        <div class="" id="navbar">
+          <ul class="nav navbar-nav" id="topNavigation">
+	    <li class="dropdown">
+	      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">%(listname)s <span class="caret"></span></a>
+              <ul class="dropdown-menu" id="listOfLists">
+	      </ul>
+	    </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
       <a name="start"></A>
       <h1>%(archive)s Archiv nach %(archtype)s</h1>
-      <ul>
-         <li> <b>Nachrichten sortiert nach:</b>
-	        %(thread_ref)s
-		%(subject_ref)s
-		%(author_ref)s
-		%(date_ref)s
 
-	     <li><b><a href="%(listinfo)s">Weitere Informationen über diese Liste ...
-                    </a></b></li>
-      </ul>
+      <nav>
+	<ul class="pagination">
+          <li class="label-text"><a><b>Nachrichten sortiert nach:</b></a></li>
+	  <li data-ref="thread">%(thread_ref)s</li>
+	  <li data-ref="subject">%(subject_ref)s</li>
+	  <li data-ref="author">%(author_ref)s</li>
+	  <li data-ref="date">%(date_ref)s</li>
+	</ul>
+      </nav>
+
+
       <p><b>Von:</b> <i>%(firstdate)s</i><br>
          <b>Bis:</b> <i>%(lastdate)s</i><br>
          <b>Nachrichten:</b> %(size)s<p>

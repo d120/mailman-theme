@@ -1,14 +1,38 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
-     <title>Das %(listname)s Archiv</title>
-     <META NAME="robots" CONTENT="noindex,follow">
-     %(meta)s
+    <title>Das %(listname)s Archiv</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="list-name" content="%(listname)s">
+    <META NAME="robots" CONTENT="noindex,follow">
+    %(meta)s
+    <link rel="stylesheet" href="/assets/mailman/mailman.css">
+    <script src="/assets/mailman/jquery.min.js"></script>
+    <script src="/assets/mailman/mailman.js"></script>
   </HEAD>
-  <BODY BGCOLOR="#ffffff">
+  <BODY>
+    <nav class="navbar navbar-default navbar-static-top orange-stripe">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/mailman/listinfo"><span>D120.de/</span>mailman</a>
+        </div>
+        <div class="" id="navbar">
+          <ul class="nav navbar-nav" id="topNavigation">
+	    <li class="dropdown">
+	      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">%(listname)s <span class="caret"></span></a>
+              <ul class="dropdown-menu" id="listOfLists">
+	      </ul>
+	    </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
      <h1>Das %(listname)s Archiv </h1>
      <p>
-      Über diese Liste können <a href="%(listinfo)s">weitere Informationen angesehen werden,</a>
+      &Uuml;ber diese Liste k&ouml;nnen <a href="%(listinfo)s">weitere Informationen angesehen werden,</a>
       oder das gesamte Archiv kann <a href="%(fullarch)s">heruntergeladen werden</a>
       (%(size)s).
      </p>
@@ -16,5 +40,8 @@
      %(archive_listing_start)s
      %(archive_listing)s
      %(archive_listing_end)s
-     </BODY>
-     </HTML>
+
+    </div>
+
+  </BODY>
+</HTML>

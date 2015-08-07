@@ -3,6 +3,8 @@
  <HEAD>
    <TITLE> %(title)s
    </TITLE>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="list-name" content="%(listname)s">
    <LINK REL="Index" HREF="index.html" >
    <LINK REL="made"  HREF="mailto:%(email_url)s?Subject=%(subject_url)s&In-Reply-To=%(in_reply_to_url)s">
    <META NAME="robots" CONTENT="index,nofollow">
@@ -14,8 +16,30 @@
    %(encoding)s
    %(prev)s
    %(next)s
+   <link rel="stylesheet" href="/assets/mailman/mailman.css">
+   <script src="/assets/mailman/jquery.min.js"></script>
+   <script src="/assets/mailman/mailman.js"></script>
  </HEAD>
- <BODY BGCOLOR="#ffffff">
+ <BODY>
+    <nav class="navbar navbar-default navbar-static-top orange-stripe">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/mailman/listinfo"><span>D120.de/</span>mailman</a>
+        </div>
+        <div class="" id="navbar">
+          <ul class="nav navbar-nav" id="topNavigation">
+	    <li class="dropdown">
+	      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">%(listname)s <span class="caret"></span></a>
+              <ul class="dropdown-menu" id="listOfLists">
+	      </ul>
+	    </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
    <H1>%(subject_html)s</H1>
     <B>%(author_html)s</B> 
     <A
@@ -49,6 +73,9 @@
               <a href="author.html#%(sequence)s">[ Autor ]</a>
          </LI>
        </UL>
-<hr>
+</div>
+<footer><div class="container">
 <a href="%(listurl)s">Mehr Informationen &uuml;ber die Mailingliste %(listname)s</a><br>
+</div></footer>
+
 </body></html>

@@ -1,0 +1,24 @@
+@import url(/assets/bootstrap.min.css);
+@import url(/~mweller/fontawesome/css/font-awesome.min.css);
+
+.navbar {
+  border-top: 8px solid #FFA500;
+}
+
+
+#navbar li.active { border-top: 8px solid #CC7500; margin-top: -8px; }
+.navbar a.navbar-brand { color: #666; }
+.navbar-brand span { color: #aaa; }
+.navbar a.navbar-brand:hover, .navbar a.navbar-brand:hover sxxpan { color: #bF5500 }
+
+footer { background-color: #333; color: #bbb; padding: 20px 0; margin: 20px 0 0; }
+footer hr { display: none; }
+footer a { color: #d80; }
+footer table { margin-top: 20px; }
+footer table td { font-size: 8pt; color: #888; }
+footer table a { color: #888; }
+footer a:hover { color: #dd0; }
+
+nav .label-text a, nav .label-text a:hover { color: #999; background: white; }
+
+table { border-collapse: inherit; border-spacing: 4px; }
