@@ -6,8 +6,18 @@ var currentView = urlMatch[1];
 var dispListName = $("meta[name=list-name]").attr("content");
 if (!dispListName) dispListName = urlMatch[3];
 
-if (dispListName)
+try { var recentlyUsed = JSON.parse(window.localStorage.mailmanRecent); }catch(e){}
+if (! (recentlyUsed instanceof Array)) recentlyUsed = [];
+
+if (dispListName) {
   var listName = dispListName.toLowerCase();
+
+  var pos = recentlyUsed.indexOf(listName);
+  if (pos > -1) recentlyUsed.splice(pos, 1);
+  recentlyUsed.unshift(listName);
+  if (recentlyUsed.length > 7) recentlyUsed.splice(7, 99);
+  window.localStorage.mailmanRecent = JSON.stringify(recentlyUsed);
+}
 
 var navbarHtml = '<nav class="navbar navbar-default navbar-static-top orange-stripe"><div class="container"> \
     <div class="navbar-header"><a class="navbar-brand" href="/mailman/listinfo"><span>D120.de/</span>mailman</a></div> \
@@ -38,6 +48,9 @@ $(function() {
       $nav.html('<li class="dropdown">\
 	      <a href="#" class="dropdown-toggle" data-toggle="dropdown">' + dispListName + ' <span class="caret"></span></a>\
               <ul class="dropdown-menu" id="listOfLists"></ul></li>');
+    recentlyUsed.forEach(function(name) {
+      $('#listOfLists').append('<li><a href="/mailman/listinfo/'+name+'"><b>'+name+'</b></a></li>');
+    });
     $.get('/mailman/listinfo', function(html) {
       var matches = html.match(/href="listinfo\/([A-Za-z0-9-]*)/g);
       for(var i in matches)
