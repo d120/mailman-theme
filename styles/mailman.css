@@ -5,8 +5,13 @@
   border-top: 8px solid #FFA500;
 }
 
-
+@media screen and (min-width: 768px) {
 #navbar li.active { border-top: 8px solid #CC7500; margin-top: -8px; }
+}
+@media screen and (max-width: 991px) {
+.navbar .container { width: auto; margin: 0 10px; }
+}
+
 .navbar a.navbar-brand { color: #666; }
 .navbar-brand span { color: #aaa; }
 .navbar a.navbar-brand:hover, .navbar a.navbar-brand:hover sxxpan { color: #bF5500 }
@@ -22,3 +27,11 @@ footer a:hover { color: #dd0; }
 nav .label-text a, nav .label-text a:hover { color: #999; background: white; }
 
 table { border-collapse: inherit; border-spacing: 4px; }
+
+@media screen and (min-width: 1200px) {
+  .container { padding-right: 200px; }
+  #sideNav { position: absolute; right: 5px; top:0px; width: 150px; background: white; min-height: 100%; border-left: 1px solid #eee; height: 100%; padding: 70px 0 ; }
+  #sideNav li { list-style-type: none; padding: 0; margin: 0;  }
+  #sideNav a { padding: 1px 5px; display: block; }
+  #sideNav a:hover { background: #FFa500; color: white; }
+}

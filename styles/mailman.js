@@ -55,6 +55,7 @@ $(function() {
       var matches = html.match(/href="listinfo\/([A-Za-z0-9-]*)/g);
       for(var i in matches)
         $('#listOfLists').append('<li><a href="/mailman/'+matches[i].substr(6)+'">' + matches[i].substr(15) + '</a></li>');
+      $("<div id='sideNav'></div>").html($("#listOfLists").html()).appendTo("body");
     });
     menu.forEach(function(item) {
 	var href=item[0], text=item[1];
