@@ -1,6 +1,6 @@
 // mailman.js
 
-var urlMatch = location.pathname.match(/\/mailman\/([a-z]+)(\/([A-Za-z0-9-]+))?/);
+var urlMatch = location.pathname.match(/\/mailman\/+([a-z]+)(\/([A-Za-z0-9-]+))?/);
 var currentView = urlMatch[1];
 
 var dispListName = $("meta[name=list-name]").attr("content");
@@ -46,7 +46,7 @@ $(function() {
     menu.forEach(function(item) {
 	var href=item[0], text=item[1];
 	var li = $("<li><a></a></li>").appendTo($nav).toggleClass("active", href == currentView)
-	    .find("a").html(text).attr("href",!item[2] ? "/mailman/"+href+"/"+listName : item[2]);
+	    .find("a").html(text).attr("href",!item[2] ? "/mailman/"+href+"/"+listName+"/"	 : item[2]);
     });
 
 
